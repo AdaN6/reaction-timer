@@ -2,14 +2,30 @@
  <h1>
   hey ho Reaction Timer
  </h1>
+ <button @click="start">
+  Play
+ </button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
   components: {
+  },
+  data() {
+    return {
+      isPlaying: false,
+      delay: null,
+    }
+  },
+  methods: {
+    start() {
+      this.delay = 2000  + Math.random() * 5000
+      this.isPlaying = true
+      console.log(this.delay)
+    }
   }
 }
 </script>
