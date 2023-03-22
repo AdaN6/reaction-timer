@@ -6,7 +6,7 @@
   Play
  </button>
  <Block v-if="isPlaying" :delay="delay" @end="endGame"/>
- <p>Reaction time: {{score}} ms </p>
+ <p v-if="showResult">Reaction time: {{score}} ms </p>
 </template>
 
 <script>
@@ -19,7 +19,8 @@ export default {
     return {
       isPlaying: false,
       delay: null,
-      score: null
+      score: null,
+      showResult: false,
     }
   },
   methods: {
@@ -31,6 +32,7 @@ export default {
     endGame(timeResult) { 
       this.score = timeResult
       this.isPlaying = false
+      this.showResult = true
 
     }
   }

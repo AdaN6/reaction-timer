@@ -3,7 +3,7 @@
     Click me
   </div>
   <div>
-    <p>{{reactionTime}} </p>
+    <p v-if="showTimer">{{reactionTime}} </p>
   </div>
 </template>
 
@@ -14,7 +14,8 @@ export default {
       return {
         showBlock: false,
         timer: null,
-        reactionTime: 0
+        reactionTime: 0,
+        showTimer: false
       }
     },
     mounted() {
@@ -23,6 +24,7 @@ export default {
         this.showBlock = true
         console.log(this.delay)
         this.startTimer()
+        this.showTimer = true
       }, this.delay)
     },
     methods: {
